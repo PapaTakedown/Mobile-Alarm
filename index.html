@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Alarm Clock</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#000000" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+          background-color: #000;
+        }
+        
+        :root {
+          --color-primary-accent: #00aaff;
+          --color-primary-accent-glow: rgba(0, 170, 255, 0.5);
+          --color-primary-ghost: rgba(0, 150, 255, 0.1);
+          --color-primary-bg: #0891b2; /* equivalent to cyan-600 */
+          --color-primary-bg-hover: #0e7490; /* equivalent to cyan-700 */
+          --color-primary-ring: #06b6d4; /* equivalent to cyan-500 */
+          --color-primary-ring-focus: rgba(14, 165, 233, 0.5); /* equivalent to cyan-500/50 */
+          --color-primary-text-heading: #67e8f9; /* equivalent to cyan-300 */
+          --color-primary-text-active: #22d3ee; /* equivalent to cyan-400 */
+        }
+
+        body[data-theme='red'] {
+          --color-primary-accent: #ff0000;
+          --color-primary-accent-glow: rgba(255, 0, 0, 0.7);
+          --color-primary-ghost: rgba(255, 0, 0, 0.1);
+          --color-primary-bg: #c53030; /* A deep red for buttons */
+          --color-primary-bg-hover: #9b2c2c; /* A darker red for hover */
+          --color-primary-ring: #e53e3e;
+          --color-primary-ring-focus: rgba(229, 62, 62, 0.5);
+          --color-primary-text-heading: #fc8181;
+          --color-primary-text-active: #ff0000;
+        }
+
+        body[data-theme='green'] {
+          --color-primary-accent: #00ff00;
+          --color-primary-accent-glow: rgba(0, 255, 0, 0.6);
+          --color-primary-ghost: rgba(0, 255, 0, 0.1);
+          --color-primary-bg: #2f855a; /* A deep green for buttons */
+          --color-primary-bg-hover: #276749; /* A darker green for hover */
+          --color-primary-ring: #38a169;
+          --color-primary-ring-focus: rgba(56, 161, 105, 0.5);
+          --color-primary-text-heading: #68d391;
+          --color-primary-text-active: #00ff00;
+        }
+
+        body[data-theme='white'] {
+          --color-primary-accent: #ffffff;
+          --color-primary-accent-glow: rgba(255, 255, 255, 0.5);
+          --color-primary-ghost: rgba(255, 255, 255, 0.1);
+          --color-primary-bg: #718096; /* A neutral gray for buttons */
+          --color-primary-bg-hover: #4a5568; /* A darker gray for hover */
+          --color-primary-ring: #a0aec0;
+          --color-primary-ring-focus: rgba(160, 174, 192, 0.5);
+          --color-primary-text-heading: #e2e8f0;
+          --color-primary-text-active: #ffffff;
+        }
+
+        .font-digital {
+          font-family: 'Chakra Petch', sans-serif;
+          font-variant-numeric: tabular-nums;
+        }
+        /* Style for the "ghost" text to simulate LCD background */
+        .digital-text-ghost {
+          color: var(--color-primary-ghost);
+        }
+        /* Style for the glowing active text */
+        .digital-text-active {
+          color: var(--color-primary-accent);
+          text-shadow: 0 0 5px var(--color-primary-accent-glow), 0 0 10px var(--color-primary-accent-glow);
+        }
+
+        /* Custom utility classes for theming */
+        .bg-primary { background-color: var(--color-primary-bg); }
+        .hover\:bg-primary-hover:hover { background-color: var(--color-primary-bg-hover); }
+        .text-heading-primary { color: var(--color-primary-text-heading); }
+        .text-active-primary { color: var(--color-primary-text-active); }
+        .bg-active-primary { background-color: var(--color-primary-text-active); }
+        .focus\:ring-primary-focus:focus { --tw-ring-color: var(--color-primary-ring-focus); }
+        .focus\:ring-primary:focus { --tw-ring-color: var(--color-primary-ring); }
+        .group:hover .group-hover-text-heading-primary { color: var(--color-primary-text-heading); }
+        
+        /* Styles for iOS-style time picker */
+        .time-picker-column {
+            scroll-snap-type: y mandatory;
+            -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+        }
+        .time-picker-column::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari and Opera */
+        }
+        .time-picker-column {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .time-picker-item {
+            scroll-snap-align: center;
+        }
+        .time-picker-overlay-top {
+          background: linear-gradient(to bottom, #111 20%, transparent);
+        }
+        .time-picker-overlay-bottom {
+          background: linear-gradient(to top, #111 20%, transparent);
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-black text-white antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

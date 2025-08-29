@@ -1,0 +1,21 @@
+{
+  "name": "Modern Alarm Clock",
+  "short_name": "Alarm Clock",
+  "description": "A sleek and functional alarm clock application that allows you to set, manage, and customize multiple alarms with a clean, modern interface.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icons/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
